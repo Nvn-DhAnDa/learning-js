@@ -19,20 +19,29 @@
       <h1 class="mb-5">Simple Calculator</h1>
       <div class="calculator_box text-center">
         <div class="result_input text-start">
-          <p class=""></p>
-          <p class="font-36 mb-0">7</p>
+          <p id="solution"></p>
         </div>
         <div class="result_input text-start my-2">
-          <p class="mb-0">Enter first value</p>
+          <input
+            type="number"
+            name="firstValue"
+            id="fisrt"
+            placeholder="Enter first value"
+          />
         </div>
         <div class="result_input text-start mb-3">
-          <p class="mb-0">Enter second value</p>
+          <input
+            type="number"
+            name="secondValue"
+            id="second"
+            placeholder="Enter second value"
+          />
         </div>
-        <button class="add_one_btn">+</button>
-        <button class="add_one_btn">-</button>
-        <button class="add_one_btn">*</button>
-        <button class="add_one_btn">/</button>
-        <button class="save_btn text-white">Clear</button>
+        <button class="add_one_btn" id="add">+</button>
+        <button class="add_one_btn" id="subtrack">-</button>
+        <button class="add_one_btn" id="multi">*</button>
+        <button class="add_one_btn" id="dvd">/</button>
+        <button class="save_btn text-white" id="clear">Clear</button>
       </div>
     </div>
     <script
@@ -40,5 +49,53 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const answer = document.getElementById("solution");
+      const firstValue = document.getElementById("fisrt");
+      const secondValue = document.getElementById("second");
+      const pluse = document.getElementById("add");
+      const minus = document.getElementById("subtrack");
+      const multiple = document.getElementById("multi");
+      const divide = document.getElementById("dvd");
+      const remove = document.getElementById("clear");
+
+      pluse.addEventListener("click", function () {
+        const one = Number(firstValue.value);
+        const two = Number(secondValue.value);
+        answer.innerHTML = one + two;
+        firstValue.value = "";
+        secondValue.value = "";
+      });
+      minus.addEventListener("click", function () {
+        const one = Number(firstValue.value);
+        const two = Number(secondValue.value);
+        answer.innerHTML = one - two;
+        firstValue.value = "";
+        secondValue.value = "";
+      });
+      multiple.addEventListener("click", function () {
+        const one = Number(firstValue.value);
+        const two = Number(secondValue.value);
+        answer.innerHTML = one * two;
+        firstValue.value = "";
+        secondValue.value = "";
+      });
+      divide.addEventListener("click", function () {
+        const one = Number(firstValue.value);
+        const two = Number(secondValue.value);
+        answer.innerHTML = one / two;
+        firstValue.value = "";
+        secondValue.value = "";
+      });
+      remove.addEventListener("click", function () {
+        answer.innerHTML = 0;
+        firstValue.value = "";
+        secondValue.value = "";
+      });
+
+      // pluse.addEventListener("click", function () {
+      //   answer.innerHTML = Number(firstValue.value + secondValue.value);
+      // });
+    </script>
   </body>
 </html>
